@@ -2,7 +2,35 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(start, end, increment) {
+  
+
+
+var range = [];
+
+if (increment === undefined)  {
+  increment = 1;
+}
+
+if(start === end){
+  return range;
+}
+
+var numLg = Math.max(start, end);
+var numSm = Math.min(start, end);
+
+
+if (increment < 0) {
+    for (var i = numLg; i >= numSm; i+=increment) {
+      range.push(i);
+    }
+} else {
+  for (var i = numSm; i <= numLg; i+=increment){
+    range.push(i);
+  }
+}
+
+return range;
 
 }
 

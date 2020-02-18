@@ -12,7 +12,11 @@
  */
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
+  
+  //created a for loop to iterate through loop
   for(var i=0; i<=array.length-1; i++){
+      
+      //after each iteration the value of the element will print to console
       console.log(array[i]);
   }
   
@@ -28,7 +32,10 @@ function printArrayValues(array) {
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
   
+  //created a for loop to iterate through array starting at the last index and loop from last index to first
   for(var i=array.length-1; i>=0; i--){
+    
+    //after each iteration tthe value of the element will print to console
     console.log(array[i]);
   }
   
@@ -41,10 +48,18 @@ function printArrayValuesInReverse(array) {
  */
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
+  
+  // creating an empty array to store keys into
   var arr = [];
+
+  //for in loop to iterate through the object
   for(var key in object){
+       
+       //using the .push() method to add values, of the object keys, to the empty array created
         arr.push(key);
   }
+  
+  //returning the array to allow access 
   return arr;
      
   
@@ -58,7 +73,10 @@ function getObjectKeys(object) {
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
   
+  //for in loop iterating through object
    for(var key in object){
+        
+        //during each iteration each key will print to the console
         console.log(key);
    }
   
@@ -70,10 +88,18 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
+ 
+ //creating array to store object values 
   var arr = [];
+  
+  //for in loop used to iterate through object
   for(var key in object){
+      
+      //using .push() method to push the object values into the empty array
       arr.push(object[key]);
   }
+  
+  //returning the array with the object values 
   return arr;
   
   
@@ -87,7 +113,10 @@ function getObjectValues(object) {
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
   
+  //for in loop iterating through object
   for(var key in object){
+    
+    //printing the object's values at each iteration of the for in loop
     console.log(object[key]);
   }
   
@@ -101,10 +130,18 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
+  
+  //creating an array to push values into 
    var arr = [];
+ 
+  //for in loop to iterate through object
   for(var key in object){
+      
+      //using .push() method to push object values into array 
       arr.push(object[key]);
   }
+  
+  //using the .length property on the array to count the length of value inside
   return arr.length;
   
   
@@ -118,11 +155,20 @@ function getObjectLength(object) {
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   
+  //creating an array to store the objects values into it
    var arr = [];
+  
+  //using a for in loop to iterate through object 
   for(var key in object){
+     
+  //during each iteration of the array the object's value will be pushed into the array   
       arr.push(object[key]);
   }
- for(var i=arr.length-1; i>=0; i--){
+  
+  //for loop starting at the last element counting backwards to the first   
+  for(var i=arr.length-1; i>=0; i--){
+   
+  //printing the values in the array during each iteration of the loop
    console.log(arr[i]);
  }
   

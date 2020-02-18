@@ -15,7 +15,9 @@
 function length(string) {
     // YOUR CODE BELOW HERE //
     
-    console.log('line 18', string);
+    //console.log('line 18', string);
+    
+    //returning the length usong the .length property
     return string.length;
 
     // YOUR CODE ABOVE HERE //
@@ -27,6 +29,7 @@ function length(string) {
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
 
+       //returning the string using the .toLowerCase() method 
        return string.toLowerCase(string);
         
 
@@ -39,6 +42,7 @@ function toLowerCase(string) {
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
 
+    //returning the string using the .toUppe rCase() method 
     return string.toUpperCase(string);
 
     // YOUR CODE ABOVE HERE //
@@ -60,7 +64,8 @@ function toUpperCase(string) {
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
 
-       return string.replace(/\s/g, '-').toLowerCase();
+    //using the .replace method to replace the space character with a - and putting everything in lowercase witht the .toLowerCase() method
+    return string.replace(/\s/g, '-').toLowerCase();
        
        
     // YOUR CODE ABOVE HERE //
@@ -80,6 +85,10 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
+       
+       
+       //the conditional statement is checking for the value of the first character
+       // using the || compairison operator to compare the first characters to account for the potential differences in case
        if(string[0]===char.toLowerCase() || string[0]===char.toUpperCase()){
            return true;
        } else return false;
@@ -100,6 +109,9 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
+        
+        //using the charAt method along with the .length property to compare the last characters in each string
+        // the methods .toUppercase() & .toLowerCase() are just in case the last characters have different case values
         if(string.charAt(string.length-1)===char.toLowerCase() || string.charAt(string.length-1)===char.toUpperCase()){
            return true;
        } else return false;
@@ -116,6 +128,7 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
+//using the concat method to combine the two strings into one
             return stringOne.concat(stringTwo);
 
     // YOUR CODE ABOVE HERE //
@@ -150,12 +163,22 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    
+    //conditional statement block that compares the length of two strings and return which ever string is the longest
+    
+    //if the length of the first string is greater the function will return string one
     if(stringOne.length > stringTwo.length){
         return stringOne;
+        
+    //if the length of the second string is greater the function will return string two    
     } else if(stringOne.length < stringTwo.length){
         return stringTwo;
-    } else "they are equal";
-
+    } 
+    
+    //the else statement is covering the edge ase if the strings are of equal length
+    else {
+        "they are equal";
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -169,6 +192,10 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    //using ternary statement to compare which string is lower.
+//1. if stringOne is greater than stringTwo then the output will be one
+//2. if stringTwo is greater then the output will be -1
+//3. if they are equal the output will be 0
         return stringOne > stringTwo ? -1 : stringOne < stringTwo ? 1: 0;
         
 
@@ -185,7 +212,10 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+//using ternary statement to compare which string is lower.
+//1. if stringOne is lower than stringTwo then the output will be one
+//2. if stringTwo is lower then the output will be -1
+//3. if they are equal the output will be 0
 return stringOne > stringTwo ? 1 : stringOne < stringTwo ? -1: 0;
 
 

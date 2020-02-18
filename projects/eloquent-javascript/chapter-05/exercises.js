@@ -26,9 +26,34 @@ function every() {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(text) {
+  
+  console.log(text);
+  //lets keep count of each letter in our text for the dominate direction
+  let arrayOfScripts = countBy(text, function(characterInText){
+  // find the script for each letter that we come across
+    const objOfScripts = characterScript(characterInText.charCodeAt())
+  
 
+// check if our character belongs to a writing dorection
+  // if it belong to a writing direction, return it in our callback function
+  //if it doesn't beling to a script, return 'non-alphabetic'
+
+
+if(objOfScripts !== null){
+  return objOfScripts.direction;
+ }
+ return "non-alphabetic"
+});
+//sort our array to find the highest count value
+arrayOfScripts.sort(function(a, b){
+  return b.count - a.count;
+})
+
+return arrayOfScripts[0].name;
 }
+
+
 
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////
