@@ -28,13 +28,13 @@ var maleCount = function(array) {
     
      
     //get access to each costumer object and filter the males
- let  arrOfMaleObj = _.filter(array, function(customerObj, index, array){
+ var  arrOfMaleObj = _.filter(array, function(customerObj, index, array){
         //checking to see if my customer is a male using the gender key
         return customerObj.gender === 'male';
     });//chain on .length to get number of male customers
 
-let numOfMaleObj = arrOfMaleObj.length;
-    
+var numOfMaleObj = arrOfMaleObj.length;
+    console.log(numOfMaleObj)
     return numOfMaleObj;
     
     
@@ -42,7 +42,9 @@ let numOfMaleObj = arrOfMaleObj.length;
 
 
 
-var femaleCount;
+var femaleCount = function(array){
+    
+}; 
 
 var oldestCustomer;
 
