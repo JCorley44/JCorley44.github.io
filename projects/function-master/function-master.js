@@ -74,14 +74,16 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
+  //creating an empty array to push the capitalized strings into
   var emptyArray = [];
   
-  
+  //declaring a variable using the split method to split the inout string at the spaces
   var splitArray = string.split(" ");
   
-  
+  //creating a for loop to loop through the array storing the strings
   for(var i = 0; i < splitArray.length; i++){
     
+    //this will capitalize each string within each element of the array
     
     emptyArray.push(capitalizeWord(splitArray[i]));
   
@@ -89,7 +91,7 @@ function capitalizeAllWords(string) {
       
   }
   
-  
+  //using this variable to convert the array we had into a string joined with spaces 
   var finalString = emptyArray.join(" ");
   
   
@@ -102,8 +104,9 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
+      //for in loop iterating through object
       for(var key in object){
-        
+        //if there is a key in the object called name the value will be returned in all capital letters with a welcome message
         if(key === 'name'){
        
        return "Welcome " + capitalizeAllWords((object[key])) + "!";
@@ -117,14 +120,20 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+    //for in loop iterating through the object
     for(var key in object){
+        
+    //searching for a key called name if found the value will be stored in the name variable    
         if(key === 'name'){
             var name = object[key];
-        } else if(key === 'species'){
+        } 
+        
+    //also looking for a key named species, if found the value will be stored in the species variable  
+        else if(key === 'species'){
             var species = object[key];
         }
     }
-
+    //creating a variable to allow for the output to be in string format. 
     var final = capitalizeAllWords(name) + " is a " + capitalizeAllWords(species);
     return final;
 }
@@ -135,10 +144,14 @@ function profileInfo(object) {
 
 function maybeNoises(object){
    
-    
+    //if the parameter object's noises key is an array is true and the length of the array is greater than zero
     if(Array.isArray(object.noises)  && object.noises.length > 0){
+                
+    //the noises array will be joined and returned            
                 return object.noises.join(' ');
     }
+        
+    //if there are no noises then the following message will be returned    
         else{
     return "there are no noises";
     
@@ -150,10 +163,14 @@ function maybeNoises(object){
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-    
+ 
+//storing the string that was split into a new variable     
     var strArray = string.split(' ');
     
+//using the .includes method to check the array againt the word parameter    
 if(strArray.includes(word)){
+    
+//if the check is true then true will be returned if not then false will be returned    
     return true;
 } else {
     return false;
@@ -183,7 +200,7 @@ return object;
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-    
+    //
       if((Object.entries(object).length === 0)){
         return false;
     } else if(object.friends.includes(name)){
@@ -199,32 +216,29 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
-//creating a variable to store non friends into
-var notFriend = [];
-
-//creating an loop to iterate to elements of array
-for(var i = 0; i <= array.length; i++){
-  
-
-  
-//       return;
-//   } 
-  //conditional statement using previous function to check of name is friends with other names in the data array
-  //since the previous function checked for friends and returned true if they were friends
-  //the conditional statement will check for falsehoods and push those into a an array
-  //
-      if(isFriend(name, array[i]) === false && array[i].friends !== name && array[i].name !== name){
-          
-  
-  //pushing the flase values to the friends function into the not friends array
-        notFriend.push(array[i].name);
-        console.log('notfriend', notFriend);
+    // assign an empty array to a variable called nameList.
+    var nameList = [];
+    // empty array for result
+    var result = [];
+    // loop through an array (is one of parameter in the function) to look for the name
+    for(var i = 0; i < array.length; i++) {
+        if(name === array[i].name) {
+        // 
+       var current = array[i];
+    } else {
+        nameList.push(array[i].name);
     }
 }
- return notFriend;
-
-
+      if(current === null){
+        return nameList;
+    }
+    for(var i = 0; i < nameList.length; i++){
+        if(current.friends.indexOf(nameList[i]) == -1){
+            result.push(nameList[i]);
+        }
+    }
+    // return a list of all the names that <name> is not friends with"
+    return result;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -232,8 +246,10 @@ for(var i = 0; i <= array.length; i++){
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+//using the anonymous key notation to add a new value to the object
 object[key] = value;
+
+//returning the object with the new property
 return object;
 }
 
@@ -269,35 +285,13 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-function nonFriends(name, array) {
-    //creating an empty array 
-    var nameList = [];
-   
-    //empty array for answer
-    var result = [];
-    
-    //loop iterating through the array
-    for(var i = 0; i < array.length; i++) {
-        
-    //if name is strictly equal   
-        if(name === array[i].name) {
-        
-       var current = array[i];
-    } else {
-        nameList.push(array[i].name);
+var nonDupArray =[];
+    for(var i = 0; i < array.length; i++){
+            if(nonDupArray.indexOf(array[i]) === -1){
+                    nonDupArray.push(array[i]);
+            }
     }
-}
-      if(current === null){
-        return nameList;
-    }
-    for(var i = 0; i < nameList.length; i++){
-        if(current.friends.indexOf(nameList[i]) == -1){
-            result.push(nameList[i]);
-        }
-    }
-    // return array of names non dupes
-    return result;
-}
+return nonDupArray;
 }
 
 //////////////////////////////////////////////////////////////////////

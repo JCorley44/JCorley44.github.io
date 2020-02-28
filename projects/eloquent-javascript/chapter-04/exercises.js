@@ -3,58 +3,87 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 function range(start, end, increment) {
+  //creating a range array
+  var range = [];
   
-
-
-var range = [];
-
-if (increment === undefined)  {
-  increment = 1;
-}
-
-if(start === end){
-  return range;
-}
-
-var numLg = Math.max(start, end);
-var numSm = Math.min(start, end);
-
-
-if (increment < 0) {
-    for (var i = numLg; i >= numSm; i+=increment) {
-      range.push(i);
-    }
-} else {
-  for (var i = numSm; i <= numLg; i+=increment){
-    range.push(i);
+  //if the start and end parameter are the same then the empty array will be returned
+  if(start === end){
+    return range;
   }
+   
+  //if thr increment is greater than zero
+    if(increment > 0){
+      
+  //loop for the increasing by the increment value and pushing into pushing into range array
+      for(var i = start; i <= end; i = i + increment){
+          range.push(i);
+      }
+    }
+    
+    else if (increment < 0){
+  
+  //loop for the decreasing by the increment value and pushing into range array
+        for(var j = start; j >= end; i = i + increment){
+            range.push(j);
+        }
+    }
+    
+  //if the increment parameter is undefined then it will increment by one
+    else if (increment === undefined){
+        for(var k = start; k <= end; k++){
+          range.push(k);
+        }
+    }
+    return range;
 }
 
-return range;
-
-}
+// var range = function(start, end, step) {
+//     var arr = [];
+//     for (var i = start; step > 1 || step === undefined ? i <= end : i >= end; step ? i = i + step : i++)
+//         arr.push(i);
+//     return arr;
+// };
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-
-}
+function sum(array){
+    // const reducer = (seed, value) => seed + value;
+    // return array.reduce(reducer);
+    
+    //creating avariable to store the sum into
+    var arraySum = 0;
+    
+    for(var i = 0; i < array.length; i++){
+         arraySum = arraySum + array[i];
+    }
+    return arraySum;
+    
+    }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
-
+function reverseArray(array) {
+  //creating a variable to store reversed array
+  var reversedArray = [];
+        
+  for(var i = array.length - 1; i >= 0; i--){
+    reversedArray.push(array[i]);
+  }
+        
+        return reversedArray;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
+function reverseArrayInPlace(array) {
+//had to reverse array in place .reverse does that 
+  return array.reverse();
 
 }
 
@@ -62,7 +91,13 @@ function reverseArrayInPlace() {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
+function arrayToList(array) {
+
+  var list = null;
+  for (var i = array.length - 1; i >= 0; i--) {
+    list = {value: array[i], rest: list};
+  }
+  return list;
 
 }
 
@@ -70,7 +105,18 @@ function arrayToList() {
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(list) {
+//creating an array for the list
+var arrayList = [];
+
+//for loop iterating through the sublist
+for (let node = list; node; node = node.rest) {
+  
+//pushing the node object's value into the array list  
+ arrayList.push(node.value);
+}
+
+return arrayList;
 
 }
 
@@ -78,7 +124,27 @@ function listToArray() {
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
+function prepend(value, list) {
+// //creating a variable to hold the array from the list parameter  
+// //using the listToArray function to create an array of values
+// var listArray = listToArray(list);  
+  
+// //declaring and assigning the objectListArray with the value placed on the front of the listArray
+// var objectListArray = listArray.unshift(value);
+ 
+// //using the arrayToList function to change the array to an object 
+// var objectList = arrayToList(objectListArray);
+ 
+// //returning the new object 
+// return objectList; 
+
+var listArray = listToArray(list);
+
+listArray.unshift(value);
+
+var objectList = arrayToList(listArray);
+
+return objectList;
 
 }
 
@@ -86,7 +152,13 @@ function prepend() {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(list) {
+  
+for (let node = list; node; node = node.rest) {
+  
+  
+}  
+  
 
 }
 
