@@ -32,6 +32,6 @@
     "sinon": "^2.2.0"
   },
   "dependencies": {
-    "lodown-jcorley44": "^1.0.0"
+    "lodown-jcorley44": "^1.0.3"
   }
 }

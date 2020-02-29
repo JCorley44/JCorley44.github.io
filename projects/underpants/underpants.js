@@ -199,6 +199,9 @@ else{
 
 _.indexOf = function(array, value){
     // return array.indexof(value);
+    if(array === undefined){
+        return undefined;
+    }
     
     for(var i = 0; i < array.length; i++){
         if(array[i] === value){
@@ -609,7 +612,7 @@ _.reduce = function(array, action, seed){
             seed = array[0];
     // if there is a seed, the seed equals-pl the action applied to the seed, element, and index
         } else if(seed){
-            seed = action(seed, elem, ind);
+            seed = action(seed, elem, ind, arr);
         }
     });
     // returning the seed

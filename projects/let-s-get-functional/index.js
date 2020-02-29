@@ -44,13 +44,91 @@ var numOfMaleObj = arrOfMaleObj.length;
 
 var femaleCount = function(array){
     
+ //  _.reduce(array, function(prev, current, index){
+     
+// },0)
+    
+    //declaring and assigning the variable of numOfFem 
+    //using the reduce function to count the number of females
+    var numOfFem = _.reduce(array, function(initialValue, customerObj){
+    
+    //if the customer object id strictly equal to female 
+      if(customerObj.gender === 'female'){
+         
+    //then the initial value will increase by one     
+          initialValue += 1;
+          return initialValue;
+      }
+      
+    //if the customerObj is not strictly equal to female then the initialValue-seed will be returned   
+      else{
+          return initialValue;
+      }
+        
+    //setting the seed to one as the initial value    
+    }, 1);
+    //returning the variable with the count and subtracting the initial seed value  
+       var final = numOfFem - 1;
+       console.log(final);
+       return final;
 }; 
 
-var oldestCustomer;
+var oldestCustomer= function(array){
+    
+// var oldestAge = 0;
+// //creating an array of the ages
+// var oldieAge = _.pluck(array, 'age');
+      
+// //creating an array og the names
+// var oldieName = _.pluck(array, 'name')
 
-var youngestCustomer;
+// ///using math.max to find the largest age
+// var largestAge = Math.max(...oldieAge);
+  
+// var eldestName;
 
-var averageBalance;
+
+var age = 0;
+var name;
+
+
+    for(var i = 0; i < array.length; i++){
+        if(array[i].age > age){
+                age = array[i].age;
+         name = array[i].name;
+        }
+    }
+return name;
+};
+
+var youngestCustomer = function(array) {
+    
+var age = 100;
+var name;
+
+
+    for(var i = 0; i < array.length; i++){
+        if(array[i].age < age){
+                age = array[i].age;
+         name = array[i].name;
+        }
+    }
+return name;
+
+};
+    
+    
+    
+
+var averageBalance = function(array){
+    
+var totalBal = _.reduce(array, function(currentBalance, TotalBalance){
+        
+        currentBalance += TotalBalance;
+        return currentBalance;
+    },1);
+    return console.log(totalBal);
+};
 
 var firstLetterCount;
 
