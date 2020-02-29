@@ -123,7 +123,7 @@ return name;
 var averageBalance = function(array){
     
 var totalBal = _.reduce(array, function(currentBalance, TotalBalance){
-        
+      
         currentBalance += TotalBalance;
         return currentBalance;
     },1);
