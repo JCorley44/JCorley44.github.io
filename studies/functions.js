@@ -1,88 +1,113 @@
-/**
- *  DATATYPES 
- * 
- *  Datatypes are the attributes of data that allows the compiler to execute the code 
- *  as the programmer intends. They provide the values in which expression get their values.
- *  There are many different datatypes with different values and interactions with other datatypes.
+/*
+ * FUNCTIONS:
+ *
+ * 0. Functions are reusable code that can perform complex actions. Functions are great to use because once created they 
+ * can be invoked to reduce the amount of code that has to be written and limit mistakes.
  */
 
-//              NUMBERS
-// Number datatype allow the program to use numbers whether negative, positive or decimal. 
 
 
-//              STRING
-// Strings are data in text form. To create a string characters must be surrounded by quotes or double quotes.
-        let string = 'This is an example of a string.';
-        let string2 = "This is another example of a string";
-// Strings also have index starting at zero. To access the index type name of the string variable
-// the index number after it inside of brackets.
-        string[3]; //This will print s to the terminal
-// String length is a property of strings and outputs the number of indices in a string 
-        string2.length; //will output 35 to console
+// 1.Two phases to use a function
+// To use a function one must first invoke it 
+// Then pass arguements into it inorder to use it 
+
+var codeName = 'Shadow Burger';
+function whatIsYourCodeName(string){        //declaring the function and using a parameter called string
+    console.log(`${codeName} is an execellent choice agent.`);
+}
+whatIsYourCodeName(codeName);               //here we are invoking the codename function with an arguement that is a variable 
 
 
-//              BOOLEAN
-// The boolean datatype returns two logical values, true and false. It is often used for conditional
-// statements and loops. 
-    //boolean value in if statement 
-        if('boolean conditional'){
-            // Code here executes if the boolean conditional is true
-        } else {
-            // Code here executes if the boolean conditional is false
-        }
+
+// 2. Parameters vs Arguements
+// Parameters are the place holder variables used during the function declaration phase
+// Arguements are only used in functions once they are declared. 
 
 
-//              ARRAY
-/**  Arrays are datatypes that are capable of storing multiple values in one variable. Arrays are created when you assign a variable Each value 
- *   is in an element with a numbered index. The elements within the array can hold any other datatype 
- *   such as: numbers, strings, booleans, functions, objects and even other arrays. They even have properties and 
- *   methods which can be used to manipulate the data within them. 
- */
-    //Example of an array
-        let array = ['one', 2, true, ['three', 4]];
-
-
-//      ARRAY PROPERTIES
-//  .length - This property returns the number of elements in an array
-        array.length;   //returns 4 to the terminal since the example array has elements
-
-//  .prototype - This property allows for the user to create new proporties and methods. 
-//  Once prototype has been used all arrays will have access to the newly created method
-
-//              OBJECT
-/**  Objects like arrays can store many values and different types of data. Unlike arrays 
- *   objects are not organized by indices but instead have associative key/value pairs.
- */
-//Example object 
-            let jaguars = {
+var preferredWeapon = 'pickle disks';
+function weaponChoice(string){                           //string is the parameter, indicating the data type the finction is expecting
+    console.log(`You chose to use ${string} as your primary weapon.`);
+}
+weaponChoice(preferredWeapon);                           //preferredWeapon is the arguement with a string value assigned to it
 
 
 
 
 
-            }
+// 3. Syntax for a named function
+// Functions must have the keyword function in the declaration. If it a named function then the jeyword function is first followed by the 
+// function's name followed by a set of parenthesis which may include parameters if any are needed. 
+// After the parenthesis a set of curly braces used to type the code that is the function body
 
-
-//              FUNCTION
-
-
-
-//              UNDEFINED
-// The datatype of undefined occurs when a variable is declared but has not been assigned a value. 
-            let stop;
-            console.log(stop);
-
-//              NULL
-// Null is the intentional absence of any value. 
-            let go = null; 
-
-
-//              NAN
+function agentGreeting(string){
+   
+    console.log(`Welcome agent ${string} to Central HQ.`);
+   
+}
 
 
 
-//              INFINITY AND -INFINITY
+// 4. Assigning functions to variables 
+// Functions can be assigned to variables by first declaring the variable then using the assignment operator 
+// to assign an anonymous function to the variable. From there the function syntax is the same as any other function
+
+var specialAttack = function (string){
+   
+    console.log(`Good choice agent ${string} will surely strike fear into the hearts of your enemies.`);
+   
+};
 
 
 
-//              DIFFERENCE BETWEEN DATATYPES
+// 5. Functions can OPTIONALLY take inputs, and OPTIONALLY return a single value. How do we specify inputs, and how do we specify outputs? //
+// Functions can be declared without using parameters. These functions will usually use data from the outside and operate on it.
+// Returning a aingle output from a function is possible by using the return keyword. It will allow for the return output to be used in the 
+// code later.
+
+
+function youTheAgent() {            //no parameters include in declaration of function and will return a string using previously created variables
+   
+    return console.log(`${codeName} you have chosen ${preferredWeapon} as your weapon and I think you are ready for the field.`);     
+   
+}
+
+youTheAgent()                       //returns "Have A Great Day"
+
+
+
+
+
+// 6. Scope 
+// Javascript has two scopes, global and local. Depending on where a vairable is declared it might be either in a global or local scope.
+// The global scope cannot access anything inside of a given local scope but local scopes can access global variables.
+
+var favoriteFood = 'pizza';
+
+function bestMealEver(food){
+   
+    var secondFavoriteFood = 'gumbo';                 //declaring and assigning value to variable secondFavoriteFood
+    return favoriteFood + ' & ' + secondFavoriteFood;
+}
+
+console.log(bestMealEver(favoriteFood));              //will return the string of 'pizza & gumbo'
+
+bestMealEver(secondFavoriteFood);                     //throws an error because secondFavoriteFood is scope bound to the function of bestMealEver
+
+
+
+
+// 7. Closures
+// A closure is when an inner function references a variable or parameter from the outer function. 
+
+
+
+function agentLocation(){                                       //the local function is referencing the location variable from the agentLocation function 
+   var location1 = 'New Zealand';                                     //which gives us one closure but using the codeName variable is not one since it was defined in the global scope
+        return function local(location , name){
+        name = codeName;
+        location = location1
+        return console.log(`Agent ${name}, you have been assigned to work at ${location}`);
+    }
+}
+
+console.log(agentLocation());
