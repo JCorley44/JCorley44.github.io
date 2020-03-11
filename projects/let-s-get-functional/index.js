@@ -293,7 +293,7 @@ var friendsCount = function(array, name){
 
 
 
-var topThreeTags = function(array){
+//var topThreeTags = function(array){
 // //creating an array for all tags
 //  var arrayOfAllTags = [];
      
@@ -335,15 +335,43 @@ var topThreeTags = function(array){
 
 
 //creating an array to store top three tags 
+//};
+
+
+
+
+
+
+
+var topThreeTags = function(array){
 var top3 = [];
 _.each(array, function(element, index, collection) {
 _.each(element.tags, function(tag, index, collection) {
     top3.push(tag);
 });
 });
-
-
+var reduced = _.reduce(top3,function(accObj, tags){
+  if(accObj[tags]){
+accObj[tags] += 1;
+return accObj;
+  }
+  accObj[tags] = 1;
+  return accObj;
+},{});
+var sortedArray = [];
+for (var key in reduced){
+  sortedArray.push({tag: key, occured: reduced[key]});
+}
+sortedArray.sort(function (a,b){
+  return b.occured - a.occured;
+});
+return [sortedArray[0].tag, sortedArray[1].tag, sortedArray[2].tag];
 };
+
+
+
+
+
 
 
 
