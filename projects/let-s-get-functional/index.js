@@ -289,60 +289,6 @@ var friendsCount = function(array, name){
 
 
 
-
-
-
-
-//var topThreeTags = function(array){
-// //creating an array for all tags
-//  var arrayOfAllTags = [];
-     
-// //iterating over the array of objects
-//         for(var i = 0; i < array.length; i++){
-          
-// //putting all of the values of the tags keys into an array
-//             var tagsArray = array[i]['tags'];    
-                
-//          //pushing all of the tag values that we are getting into the array of all tags
-//                 for(var j = 0; j < tagsArray.length; j++){
-//                     arrayOfAllTags.push(tagsArray[j]);
-//                 }
-//     }
-
-// //sorting the tags
-// var sortedTags = arrayOfAllTags.sort();
-
-// for(var k = 0; k < sortedTags.length; k++){
-// }  
-// //creating an object to hold the occurence of tags
-// var counts = {}; 
-
-// //counting the occurances of the tags
-// for (var i = 0; i < sortedTags.length; i++) {
-//   var num = sortedTags[i];
-//   counts[num] = counts[num] ? counts[num] + 1 : 1;
-// }
- 
-// var sortedTagWithValueArray = [];    
-//  for(let key in sortedTags){
-//       sortedTagWithValueArray.push([key, sortedTags[key]]);
-//   }
-  
-  
-//  //returning the sorted tags with value
-//  return  [sortedTagWithValueArray[0], sortedTagWithValueArray[1], sortedTagWithValueArray[2]];
-
-
-
-//creating an array to store top three tags 
-//};
-
-
-
-
-
-
-
 var topThreeTags = function(array){
 var top3 = [];
 _.each(array, function(element, index, collection) {

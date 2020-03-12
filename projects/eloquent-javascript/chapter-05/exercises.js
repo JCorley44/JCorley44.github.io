@@ -20,8 +20,13 @@ return newArray;
 // /////////////////////////////////////////////////////////////////////////////
 
 function loop(start, test, update, body) {
-  
+
+
+//It takes a value, a test function, an update function, and a body function. 
+//during each iteration, it will first run a test function on the current loop value and stops if that returns false.
   for (let value = start; test(value); value = update(value)) {
+    
+//updating the body during each iteration    
     body(value);
   }
 }
@@ -31,11 +36,17 @@ function loop(start, test, update, body) {
 // /////////////////////////////////////////////////////////////////////////////
 
 function every(array, predicate) {
-  for (let element of array) {
+
+
+
+//will return true when the given function returns true for every element in the array.
+//fasle otherwise
+   for (let element of array) {
     if (!predicate(element)) return false;
   }
   return true;
 }
+
 
 function every2(array, predicate) {
   return !array.some(element => !predicate(element));
