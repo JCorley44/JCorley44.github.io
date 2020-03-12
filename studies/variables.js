@@ -133,8 +133,10 @@ console.log(speedOfSound); // Since speedOfSound is scope bound this will return
  
 // 7. Hoisting //
 // All variable and function declarations are brought to the top of the code or the '0th' line. 
-// if a variable is referenced before it has been declared the variable will have a value of undefined.
+// If a variable is referenced before it has been declared the variable will have a value of undefined.
 
+// Variables declared with let and const will be hoisted but the code will not have access to their values until they have been assigned one. They will be in a 
+// temporal deadzone.
 
 console.log(color); // Due to hoisting, the computer knows that color has been declared but does not know the value thus returning undefined
 var color = 'blue'; // Now the color variable has the value of 'blue' if checked it will return blue 

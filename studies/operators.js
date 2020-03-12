@@ -149,7 +149,13 @@ console.log(j--); //j-- will output 3
 //Using a variable to demonstrate the comparison operators
 let zeta = 44;
 
-// Equal to value operator: ==
+// Loosely equal to value operator: ==
+// Will perform a type conversion when comparing two things 
+zeta == 9;      //Returns false
+zeta == '44'    //Return true, the equal to operator only looks at the value and not the type of data when compairing
+
+// Stictly equal to value operator: ===
+// Will not perform a type conversion when comparing two things
 zeta == 9;      //Returns false
 zeta == '44'    //Return true, the equal to operator only looks at the value and not the type of data when compairing
    

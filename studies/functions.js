@@ -8,14 +8,14 @@
 
 
 // 1.Two phases to use a function
-// To use a function one must first invoke it 
-// Then pass arguements into it inorder to use it 
+// The first phase for a function is declaring the function
+// The second phase is the invkoing the function
 
 var codeName = 'Shadow Burger';
-function whatIsYourCodeName(string){        //declaring the function and using a parameter called string
+function whatIsYourCodeName(string){        //declaring the function 
     console.log(`${codeName} is an execellent choice agent.`);
 }
-whatIsYourCodeName(codeName);               //here we are invoking the codename function with an arguement that is a variable 
+whatIsYourCodeName(codeName);               //here we are invoking the codename function 
 
 
 

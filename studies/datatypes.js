@@ -191,12 +191,14 @@ whatKindOfCar(myCar);                       // The value of the myCar variable i
 
 
 // Copy by reference example
-var favoriteColors = ['red', 'black', 'silver'];         // variable being assigned an array, which is a complex datatype 
+const refVar = { name: 'Jon' };             //creating two values one thaat is copied by value and the other by reference  
+const valVar = true;
 
-function colorsFunFun(array){                            // declaring a function
- 
- return array[2];                                        // code block of function
-};  
+function passes(r, v) {
+  r.name = 'The Great Jonathan';             //inside of the function the r and v parameters will attampt to change the values of  the arguements
+  v = false;
+}
 
-colorsFunFun(favoriteColors);                            // this function will return 'silver' but inside of the code block the address for silver, array[2],
-                                                         // was used to ge the value therefore only referencing it and not directly pointing to it
+passes(refVar, valVar);                      //invoking the function
+
+console.log(refVar, valVar);                 //the value of refVar changes but valVar does not
