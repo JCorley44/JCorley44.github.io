@@ -20,6 +20,7 @@ return newArray;
 // /////////////////////////////////////////////////////////////////////////////
 
 function loop(start, test, update, body) {
+  
   for (let value = start; test(value); value = update(value)) {
     body(value);
   }
@@ -46,40 +47,31 @@ function every2(array, predicate) {
 
 function dominantDirection(text) {
   
-//   console.log(text);
-//   //lets keep count of each letter in our text for the dominate direction
-//   let arrayOfScripts = countBy(text, function(characterInText){
-//   // find the script for each letter that we come across
-//     const objOfScripts = characterScript(characterInText.charCodeAt())
+  console.log(text);
+  //lets keep count of each letter in our text for the dominate direction
+  let arrayOfScripts = countBy(text, function(characterInText){
+  // find the script for each letter that we come across
+    const objOfScripts = characterScript(characterInText.charCodeAt())
   
 
-// // check if our character belongs to a writing dorection
-//   // if it belong to a writing direction, return it in our callback function
-//   //if it doesn't beling to a script, return 'non-alphabetic'
+// check if our character belongs to a writing dorection
+  // if it belong to a writing direction, return it in our callback function
+  //if it doesn't beling to a script, return 'non-alphabetic'
 
 
-// if(objOfScripts !== null){
-//   return objOfScripts.direction;
-// }
-// return "non-alphabetic"
-// });
-// //sort our array to find the highest count value
-// arrayOfScripts.sort(function(a, b){
-//   return b.count - a.count;
-// })
+if(objOfScripts !== null){
+  return objOfScripts.direction;
+}
+return "non-alphabetic"
+});
+//sort our array to find the highest count value
+arrayOfScripts.sort(function(a, b){
+  return b.count - a.count;
+})
 
-// return arrayOfScripts[0].name;
+return arrayOfScripts[0].name;
 
 
-
-  let counted = countBy(text, char => {
-    let script = characterScript(char.codePointAt(0));
-    return script ? script.direction : "none";
-  }).filter(({name}) => name != "none");
-
-  if (counted.length == 0) return "ltr";
-
-  return counted.reduce((a, b) => a.count > b.count ? a : b).name;
 }
 
 
