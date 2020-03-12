@@ -202,3 +202,5 @@ function passes(r, v) {
 passes(refVar, valVar);                      //invoking the function
 
 console.log(refVar, valVar);                 //the value of refVar changes but valVar does not
+                                             //refVal changes because the r parameter is pointing to the same spot in memory that refVar is pointing to so that value changes
+                                             //valVar and v might point to the same value but there is no direct path to change the value so nothing will change

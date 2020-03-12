@@ -65,23 +65,25 @@ if(number < 19) {
 
 
 // 4. Switch //
-//Switch statements are another way to have conditional code execute
-//Switch expressions are evaluated once. Each value of the expression is compared with the values of each case and there is a match, the code
-//block associated with the passing case. The way to exit switch statements
+/* Switch statements are another way to have conditional code execute. Switch expressions are evaluated once. Each value of the expression is compared with the values of each case and there is a match, the code
+ * block associated with the passing case. The way to exit switch statements is by using the keyword break. Switch statements are more effective than using 
+ * nested if-then-statements. Switch statements evaluate on a single integer or enumerated value compared to if-then statements which test based upon conditions.
+ * 
+ */
 
 var bestAnime = 'Cowboy Bebop';
 
 switch(bestAnime){          
    
-    case "One Piece":                                                               //if the value of the variable is 'One Piece'
-        console.log("very long but pretty good");                                   //the first string in the console log will print
-        break;
+    case "One Piece":                                   //case: checking the input against a value
+        console.log("very long but pretty good");                                   
+        break;                                          //break: signals the end of this condition
        
-    case 'Cowboy Bebop':                                                            //this case is true so it will print the string in the console log
+    case 'Cowboy Bebop':                                                          
         console.log("Good choice, it is the best anime of all time");
         break;
        
-    default:
+    default:                                            //default: if all other checks fail then this condition will execute
         console.log("you have trash taste");        
    
 }
