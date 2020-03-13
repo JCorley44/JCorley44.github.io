@@ -68,7 +68,8 @@ if(number < 19) {
 /* Switch statements are another way to have conditional code execute. Switch expressions are evaluated once. Each value of the expression is compared with the values of each case and there is a match, the code
  * block associated with the passing case. The way to exit switch statements is by using the keyword break. Switch statements are more effective than using 
  * nested if-then-statements. Switch statements evaluate on a single integer or enumerated value compared to if-then statements which test based upon conditions.
- * 
+ * Switch statements can be faster than if else statements and if the criteria are known for the conditions being checked for switch statements are easier to read.
+ * Error detection is also mush easier in switch statements compared to if-else statements. 
  */
 
 var bestAnime = 'Cowboy Bebop';
@@ -87,3 +88,4 @@ switch(bestAnime){
         console.log("you have trash taste");        
    
 }
+
